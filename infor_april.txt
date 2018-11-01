@@ -1,0 +1,35 @@
+{
+  "return_code": {
+    "message": "string",
+    "value": "int16"
+  },
+  "tags": [
+    {
+      "id": "string",
+      "instance_id": "string",
+      "pose": {
+        "orientation": {
+          "w": "float64",
+          "x": "float64",
+          "y": "float64",
+          "z": "float64"
+        },
+        "position": {
+          "x": "float64",
+          "y": "float64",
+          "z": "float64"
+        }
+      },
+      "pose_frame": "string",
+      "size": "float64",
+      "timestamp": {
+        "nsec": "int32",
+        "sec": "int32"
+      }
+    }
+  ],
+  "timestamp": {
+    "nsec": "int32",
+    "sec": "int32"
+  }
+}
