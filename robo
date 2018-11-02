@@ -1,0 +1,49 @@
+#open gui of robo
+cd /home/fapsros/robo/src/rcdiscover/build/tools
+./home/fapsros/robo/src/rcdiscover/build/tools
+
+#open robo driver
+rosrun rc_visard_driver rc_visard_driver
+
+#when there is not picture change the fixed frame to camera
+
+#show the pointCloud2 varribe 
+rosmsg show sensor_msgs/PointCloud2
+
+#ip of the rocoception
+http://169.254.49.115
+
+#启动相机
+rosrun rc_visard_driver rc_visard_driver _enable_tf:=True _autostart_dynamics:=True _autostop_dynamics:=True
+
+#启动RestAPI 的swagger界面
+http://169.254.49.115/api/swagger/
+
+#启动april_de服务
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ } ' 'http://169.254.49.115/api/v1/nodes/rc_april_tag_detect/services/start'
+
+
+#停止服务
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ } ' 'http://169.254.49.115/api/v1/nodes/rc_april_tag_detect/services/stop'
+
+
+#detect
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"tags": [  { "id": "string","size": "float64" } ] } 
+ ' 'http://169.254.49.115/api/v1/nodes/rc_april_tag_detect/services/detect' >info_april.txt
+
+caffee
+
+#show the message that contain followed message
+rosmsg show sensor_msgs/PointCloud3
+
+#如果curl调用服务能够成功的话，就让输出的东西通过管道进入文件，再用python的文件操作定位我们需要的数据位置，提取数据写成矩阵，然后把得到的东西传给ros
+#写成一个node，调取服务。
+
+
+#1.查找curl扫码时要调用的服务的名称参数，如何输入
+
+#2.查找linux黑马程序员如何存储数据到管道
+
+#3.将管道中存储的数据写成文件，精准定位并且截取我们需要的部分，可以用python来写这一部分的代码
+
+#4.讲数据写成ros所需要的格式

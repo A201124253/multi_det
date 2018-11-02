@@ -1,5 +1,5 @@
 #打开文件
-f = open("info_april.txt","r")
+f = open("info_april_2.txt","r")
 
 #开辟二维列表infos，里面包含的元素是info_line
 infos = []
@@ -14,7 +14,7 @@ f.close()
 dic_info = eval(info)
 
 
-for i in dic_info['response']['tags']:
+for i in dic_info['tags']:
 
 	#存储每一行数据
 	info_line= []
@@ -23,16 +23,6 @@ for i in dic_info['response']['tags']:
 	i_d = i['id']
 	info_line.append(i_d)
 	#print(info_line)
-	
-
-	#读取位置值 x, y, z
-	p_x = i['pose']['position']['x']
-	info_line.append(p_x)
-	p_y = i['pose']['position']['y']
-	info_line.append(p_y)
-	p_z = i['pose']['position']['z']
-	info_line.append(p_z)
-	infos.append(info_line)
 	
 	#读取方向值w, x, y, z
 	o_w = i['pose']['orientation']['w']
@@ -43,6 +33,15 @@ for i in dic_info['response']['tags']:
 	info_line.append(o_y)
 	o_z = i['pose']['orientation']['z']
 	info_line.append(o_z)
+
+	#读取位置值 x, y, z
+	p_x = i['pose']['position']['x']
+	info_line.append(p_x)
+	p_y = i['pose']['position']['y']
+	info_line.append(p_y)
+	p_z = i['pose']['position']['z']
+	info_line.append(p_z)
+	infos.append(info_line)
 
 #print(info_line)
 print(infos)

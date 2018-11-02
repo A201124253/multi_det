@@ -24,16 +24,6 @@ for i in dic_info['response']['tags']:
 	info_line.append(i_d)
 	#print(info_line)
 	
-
-	#读取位置值 x, y, z
-	p_x = i['pose']['position']['x']
-	info_line.append(p_x)
-	p_y = i['pose']['position']['y']
-	info_line.append(p_y)
-	p_z = i['pose']['position']['z']
-	info_line.append(p_z)
-	infos.append(info_line)
-	
 	#读取方向值w, x, y, z
 	o_w = i['pose']['orientation']['w']
 	info_line.append(o_w)
@@ -43,6 +33,15 @@ for i in dic_info['response']['tags']:
 	info_line.append(o_y)
 	o_z = i['pose']['orientation']['z']
 	info_line.append(o_z)
+
+	#读取位置值 x, y, z
+	p_x = i['pose']['position']['x']
+	info_line.append(p_x)
+	p_y = i['pose']['position']['y']
+	info_line.append(p_y)
+	p_z = i['pose']['position']['z']
+	info_line.append(p_z)
+	infos.append(info_line)
 
 #print(info_line)
 print(infos)
